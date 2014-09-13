@@ -37,6 +37,6 @@ function sort(x,y){
         }
     }
     return array;
-}//true为哨兵
+}//true为哨兵  假设X,Y已经排好序
 var array=[3,4,8,1,2,11,3];
 console.log(guibing(array));
