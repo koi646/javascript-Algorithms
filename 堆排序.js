@@ -11,7 +11,7 @@ var max_heapify=function(a,i){//传入的数组a[0]代表的是数组的长度 i
     var max=0;//存最大下标
     var temp=0;//中间变量
     var l=left(i);
-    var r=right(i);console.log(a+"!!!");
+    var r=right(i);
     if(l< a[0]&&a[l]>a[i]){
         max=l;
     }
@@ -41,5 +41,17 @@ var build_max_heap=function(a){
 }//构建最大堆
 
 var a=[4,1,3,2,16,9,10,14,8,7];
-a=build_max_heap(a,2);
-console.log(a);
+
+var heapsort=function(a){
+    a=build_max_heap(a);
+    var temp=0;
+    for(var i=a[0];i>1;i=a[0]){
+        temp=a[i-1];
+        a[i-1]=a[1];
+        a[1]=temp;
+        console.log(a[i-1]);
+        a[0]--;
+        max_heapify(a,1);
+    }
+};//堆排序的原理，将根节点的值与最后一个叶子节点交换，然后输出最后一个叶子节点，再控制a[0]来改变叶子大小，再对根节点进行最大堆维护
+heapsort(a);
